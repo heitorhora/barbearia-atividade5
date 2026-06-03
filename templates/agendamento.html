@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendamento - Barbearia Da Hora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='imagens/Logo branca.png') }}" alt="Barbearia Da Hora" class="logo">
+        </a>
+    </header>
+
+    <a href="{{ url_for('index') }}" class="link-home">Home</a>
+
+    <h2 class="titulo-tela">AGENDAR HORÁRIO</h2>
+
+    <div class="cadastro-container"> 
+        
+        <form action="{{ url_for('agendar') }}" method="POST">
+            
+            <div class="form-group">
+                <label for="servico">Escolha o Serviço:</label>
+                <select id="servico" name="servico" required>
+                    <option value="">Selecione uma opção...</option>
+                    <option value="corte">Corte - R$ 40,00</option>
+                    <option value="barba">Barba - R$ 30,00</option>
+                    <option value="combo">Combo (Corte + Barba) - R$ 60,00</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hora">Horário:</label>
+                <select id="hora" name="hora" required>
+                    <option value="">Selecione um horário...</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:40">09:40</option>
+                    <option value="10:20">10:20</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:40">13:40</option>
+                    <option value="14:20">14:20</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:40">15:40</option>
+                    <option value="16:20">16:20</option>
+                    <option value="17:00">17:00</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-roxo" style="margin-top: 30px;">CONFIRMAR AGENDAMENTO</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

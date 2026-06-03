@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Agendamentos</title>
+    <!-- Certifique-se de que o caminho do CSS está correto -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="titulo-tela">Agendamentos Registrados</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Serviço</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for agendamento in agendamentos %}
+                <tr>
+                    <td>{{ agendamento[0] }}</td>
+                    <td>{{ agendamento[1] }}</td>
+                    <td>{{ agendamento[2] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3" style="text-align: center;">Nenhum agendamento encontrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <a href="/" class="btn-amarelo">Voltar para Home</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmação - Barbearia Da Hora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='imagens/Logo branca.png') }}" alt="Barbearia Da Hora" class="logo">
+        </a>
+    </header>
+
+    <a href="{{ url_for('index') }}" class="link-home">Home</a>
+
+    <div class="confirmacao-container" style="text-align: center; padding-top: 50px;">
+        <h2 class="titulo-tela" style="margin-bottom: 10px;">AGENDAMENTO CONFIRMADO!</h2>
+        <h3 class="titulo-tela">Obrigado pela Preferência</h3>
+        
+        <br><br><br>
+        
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='imagens/Logo preta.png') }}" alt="Logo Escura" class="logo-escura">
+        </a>
+    </div>
+
+</body>
+</html>

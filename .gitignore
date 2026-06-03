@@ -1,0 +1,8 @@
+# Arquivos de configuração sensíveis
+.env
+
+# Pastas e arquivos do Python (que não precisam de subir para o GitHub)
+__pycache__/
+*.pyc
+venv/
+.venv/

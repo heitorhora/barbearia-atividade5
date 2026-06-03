@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Da Hora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='imagens/Logo branca.png') }}" alt="Barbearia Da Hora" class="logo">
+        </a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-textos">
+            <p>A hora de dar um tapa no visual é agora!</p>
+            <h1>Estilo e <span class="texto-dourado">confiança.</span></h1>
+            <p style="margin-bottom: 30px;">Agende seu horário de forma rápida e prática e<br>venha viver a experiência Da Hora</p>
+            
+            <a href="{{ url_for('agendar') }}" class="btn-amarelo">AGENDE SEU HORÁRIO</a>
+            <a href="{{ url_for('cadastro') }}" class="btn-contorno">ENTRAR</a>
+        </div>
+        <div class="hero-imagem">
+            <img src="{{ url_for('static', filename='imagens/foto barbeiro.png') }}" alt="Barbeiro trabalhando" class="img-barbeiro">
+        </div>
+    </section>
+
+    <h2 class="secao-titulo texto-dourado">NOSSOS SERVIÇOS</h2>
+    <div class="cards-servicos">
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/foto card corte.png') }}" alt="Corte" class="icone-servico">
+            <h3 class="texto-dourado">CORTE</h3>
+            <p style="font-size: 14px; margin-bottom: 15px;">Cortes modernos e clássicos.</p>
+            <h4 class="texto-dourado">R$ 40,00</h4>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/foto card barba.png') }}" alt="Barba" class="icone-servico">
+            <h3 class="texto-dourado">BARBA</h3>
+            <p style="font-size: 14px; margin-bottom: 15px;">Modelagem de barba com estilo e produtos premium.</p>
+            <h4 class="texto-dourado">R$ 30,00</h4>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/foto card combo.png') }}" alt="Combo" class="icone-servico">
+            <h3 class="texto-dourado">COMBO</h3>
+            <p style="font-size: 14px; margin-bottom: 15px;">Corte + barba com o melhor preço e qualidade.</p>
+            <h4 class="texto-dourado">R$ 60,00</h4>
+        </div>
+    </div>
+
+    <h2 class="secao-titulo texto-dourado">NOSSOS HORÁRIOS</h2>
+    <div class="horarios">
+        <div class="card-horario">
+            <h4 class="texto-dourado">TERÇA À SEXTA</h4>
+            <p>09h às 20h</p>
+        </div>
+        <div class="card-horario">
+            <h4 class="texto-dourado">SÁBADO</h4>
+            <p>09h às 18h</p>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <h4 class="texto-dourado">CONTATO</h4>
+            <p><span style="color:#25D366;">&#128222;</span> WhatsApp: xxxx-xxxx</p>
+            <p><span style="color:#E1306C;">&#128247;</span> Insta: @xxxx</p>
+            <p>&#128205; Local: xxxx</p>
+        </div>
+        <div>
+            <h4 class="texto-dourado">OUTROS</h4>
+            <p><a href="{{ url_for('index') }}" style="color: #cccccc; text-decoration: none;">Home</a></p>
+            <p><a href="{{ url_for('agendar') }}" style="color: #cccccc; text-decoration: none;">Agendar horário</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

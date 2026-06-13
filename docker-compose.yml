@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # 1. Nosso banco de dados MySQL
+  db:
+    image: mysql:8.0
+    container_name: barbearia_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: barbearia_da_hora   # Mudamos aqui para bater com o seu banco.sql!
+    ports:
+      - "3306:3306"
+    volumes:
+      # Isso faz o Docker rodar seu banco.sql automaticamente na primeira vez
+      - ./banco.sql:/docker-entrypoint-initdb.d/banco.sql
+
+  # 2. Nosso site Flask
+  web:
+    build: .
+    container_name: barbearia_web
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      # O Flask precisa saber que o banco agora se chama "db" e não mais "localhost"
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=barbearia_da_hora         # Mudamos aqui também!

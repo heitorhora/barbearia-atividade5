@@ -1,17 +1,32 @@
 # Projeto Barbearia - Atividade 5
 
-Sistema de agendamentos web desenvolvido com Flask e MySQL, agora atualizado com Docker.
+Sistema de agendamentos web desenvolvido com Flask e MySQL, focado em conteinerização com Docker para facilitar o deploy e a escalabilidade.
 
-## 🛠️ Tecnologias
-* Python (Framework Flask)
-* MySQL
-* Docker & Docker Compose
+## 🛠️ Tecnologias Utilizadas
+* **Backend:** Python (Flask)
+* **Banco de Dados:** MySQL
+* **Infraestrutura:** Docker & Docker Compose
+* **Cloud:** AWS EC2
+
+## 🐳 Docker Hub (Imagem do Projeto)
+A imagem do projeto está publicada e disponível no Docker Hub:
+[heitorhora/barbearia-web](https://hub.docker.com/r/heitorhora/barbearia-web)
 
 ## 🚀 Como rodar o projeto
 
-### Opção 1: Com Docker (Recomendado para a Atividade 5)
-1. Certifique-se de que o **Docker Desktop** está aberto no computador.
-2. Crie o seu arquivo `.env` seguindo o modelo `.env.example`.
-3. No terminal do VS Code, execute o comando:
-   ```bash
-   docker compose up -d
+### Pré-requisitos
+* Ter o **Docker** e **Docker Compose** instalados na sua máquina.
+
+### Passos para execução
+1. **Clone o repositório:**
+```bash
+   git clone [LINK_DO_SEU_GITHUB]
+   cd [NOME_DA_PASTA]
+
+## 📸 Prints das Telas
+
+*   **Containers ativos (docker ps):**
+    ![Containers Ativos](print.png)
+
+*   **Aplicação rodando na AWS EC2:**
+    ![Aplicação Rodando](print2.png)

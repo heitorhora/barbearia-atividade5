@@ -69,4 +69,5 @@ def listar():
     return render_template('listar.html', agendamentos=agendamentos)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Modificado para permitir conexões externas dentro do contêiner Docker
+    app.run(host='0.0.0.0', port=5000, debug=True)

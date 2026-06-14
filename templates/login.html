@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrar - Barbearia Da Hora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='imagens/Logo branca.png') }}" alt="Barbearia Da Hora" class="logo">
+        </a>
+    </header>
+
+    <div class="box-login">
+        <h2 class="texto-dourado" style="margin-bottom: 30px;">ENTRAR</h2>
+        
+        {% if erro %}
+            <p style="color: #ff4d4d; margin-bottom: 20px; font-weight: bold;">{{ erro }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('login') }}" method="POST">
+            <input type="email" name="email" class="input-form" placeholder="Seu e-mail" required>
+            <input type="password" name="senha" class="input-form" placeholder="Sua senha" required>
+            
+            <button type="submit" class="btn-amarelo" style="width: 100%; border: none; cursor: pointer;">ACESSAR</button>
+        </form>
+        
+        <p style="margin-top: 25px; color: #ccc;">
+            Não tem uma conta? <a href="{{ url_for('cadastro') }}" class="texto-dourado" style="text-decoration: none;">Cadastre-se</a>
+        </p>
+    </div>
+</body>
+</html>

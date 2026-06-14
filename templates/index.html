@@ -20,8 +20,14 @@
             <h1>Estilo e <span class="texto-dourado">confiança.</span></h1>
             <p style="margin-bottom: 30px;">Agende seu horário de forma rápida e prática e<br>venha viver a experiência Da Hora</p>
             
-            <a href="{{ url_for('agendar') }}" class="btn-amarelo">AGENDE SEU HORÁRIO</a>
-            <a href="{{ url_for('cadastro') }}" class="btn-contorno">ENTRAR</a>
+            {% if session.get('usuario_logado') %}
+                <a href="{{ url_for('agendar') }}" class="btn-amarelo">NOVO AGENDAMENTO</a>
+                <a href="{{ url_for('logout') }}" class="btn-contorno">SAIR</a>
+            {% else %}
+                <a href="{{ url_for('agendar') }}" class="btn-amarelo">AGENDE SEU HORÁRIO</a>
+                <a href="{{ url_for('login') }}" class="btn-contorno">ENTRAR</a>
+            {% endif %}
+            
         </div>
         <div class="hero-imagem">
             <img src="{{ url_for('static', filename='imagens/foto barbeiro.png') }}" alt="Barbeiro trabalhando" class="img-barbeiro">

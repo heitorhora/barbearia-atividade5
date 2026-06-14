@@ -10,6 +10,11 @@
         <a href="{{ url_for('index') }}">
             <img src="{{ url_for('static', filename='imagens/Logo branca.png') }}" alt="Barbearia Da Hora" class="logo">
         </a>
+        {% if session.get('usuario_logado') %}
+            <div class="user-status">
+                Logado: {{ session['usuario_logado'] }} | <a href="{{ url_for('logout') }}" style="color: white; text-decoration: none;">SAIR</a>
+            </div>
+        {% endif %}
     </header>
 
     <a href="{{ url_for('index') }}" class="link-home">Home</a>
@@ -17,9 +22,7 @@
     <h2 class="titulo-tela">AGENDAR HORÁRIO</h2>
 
     <div class="cadastro-container"> 
-        
         <form action="{{ url_for('agendar') }}" method="POST">
-            
             <div class="form-group">
                 <label for="servico">Escolha o Serviço:</label>
                 <select id="servico" name="servico" required>
@@ -29,12 +32,10 @@
                     <option value="combo">Combo (Corte + Barba) - R$ 60,00</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="data">Data:</label>
                 <input type="date" id="data" name="data" required>
             </div>
-
             <div class="form-group">
                 <label for="hora">Horário:</label>
                 <select id="hora" name="hora" required>
@@ -52,11 +53,8 @@
                     <option value="17:00">17:00</option>
                 </select>
             </div>
-
             <button type="submit" class="btn-roxo" style="margin-top: 30px;">CONFIRMAR AGENDAMENTO</button>
         </form>
-
     </div>
-
 </body>
 </html>

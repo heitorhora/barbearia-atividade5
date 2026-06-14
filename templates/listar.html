@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Agendamentos</title>
-    <!-- Certifique-se de que o caminho do CSS está correto -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
     <div class="container">
         <h1 class="titulo-tela">Agendamentos Registrados</h1>
-        
         <table>
             <thead>
                 <tr>
@@ -33,10 +30,11 @@
                 {% endfor %}
             </tbody>
         </table>
-
         <br>
         <a href="/" class="btn-amarelo">Voltar para Home</a>
+        {% if session.get('usuario_logado') %}
+            <a href="{{ url_for('logout') }}" class="btn-contorno">SAIR</a>
+        {% endif %}
     </div>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 from dotenv import load_dotenv
 
@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+app.secret_key = 'chave_secreta_barbearia' # Necessário para criar a sessão do usuário
 
 # Configuração da conexão usando variáveis de ambiente
 def get_db():
@@ -21,6 +22,37 @@ def get_db():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+# Rota de Login (NOVA)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        senha = request.form['senha']
+        
+        conn = get_db()
+        cursor = conn.cursor()
+        sql = "SELECT * FROM usuarios WHERE email = %s AND senha = %s"
+        cursor.execute(sql, (email, senha))
+        usuario = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        
+        if usuario:
+            # Se achou o usuário, salva na sessão e manda pro agendamento
+            session['usuario_logado'] = email
+            return redirect(url_for('agendar'))
+        else:
+            # Se a senha estiver errada, recarrega a página de login com erro
+            return render_template('login.html', erro="E-mail ou senha incorretos!")
+            
+    return render_template('login.html')
+
+# Rota de Logout (NOVA)
+@app.route('/logout')
+def logout():
+    session.pop('usuario_logado', None) # Remove o usuário da sessão
+    return redirect(url_for('index'))
 
 # Rota de Cadastro
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -42,6 +74,10 @@ def cadastro():
 # Rota de Agendamento
 @app.route('/agendar', methods=['GET', 'POST'])
 def agendar():
+    # VERIFICAÇÃO DE SEGURANÇA: Se não estiver logado, manda pro login
+    if 'usuario_logado' not in session:
+        return redirect(url_for('login'))
+        
     if request.method == 'POST':
         servico = request.form['servico']
         data = request.form['data']

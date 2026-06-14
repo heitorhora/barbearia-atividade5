@@ -20,8 +20,8 @@ A imagem do projeto está publicada e disponível no Docker Hub:
 ### Passos para execução
 1. **Clone o repositório:**
 ```bash
-   git clone [LINK_DO_SEU_GITHUB]
-   cd [NOME_DA_PASTA]
+git clone https://github.com/heitorhora/barbearia-atividade5.git
+cd barbearia-atividade5
 
 ## 📸 Prints das Telas
 

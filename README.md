@@ -25,8 +25,8 @@ A imagem do projeto está publicada e disponível no Docker Hub:
 
 ## 📸 Prints das Telas
 
-*   **Containers ativos (docker ps):**
-    ![Containers Ativos](print.png)
+* **Containers ativos:**
+    ![Containers Ativos](static/imagens/print.png)
 
-*   **Aplicação rodando na AWS EC2:**
-    ![Aplicação Rodando](print2.png)
+* **Aplicação rodando:**
+    ![Aplicação Rodando](static/imagens/print2.png)

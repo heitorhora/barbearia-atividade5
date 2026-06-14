@@ -30,3 +30,6 @@ cd barbearia-atividade5
 
 * **Aplicação rodando:**
     ![Aplicação Rodando](static/imagens/print2.png)
+
+* **Imagem publicada no Docker Hub:**
+    ![Docker Hub](static/imagens/print3.png)

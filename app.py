@@ -12,11 +12,11 @@ app.secret_key = 'chave_secreta_barbearia' # Necessário para criar a sessão do
 # Configuração da conexão usando variáveis de ambiente
 def get_db():
     return mysql.connector.connect(
-        host=os.getenv('DB_HOST'),
-        user=os.getenv('DB_USER'),
-        password=os.getenv('DB_PASSWORD'),
-        database=os.getenv('DB_NAME'),
-        port=os.getenv('DB_PORT')
+        host=os.environ.get('DB_HOST'),
+        user=os.environ.get('DB_USER'),
+        password=os.environ.get('DB_PASSWORD'),
+        database=os.environ.get('DB_NAME'),
+        port=int(os.environ.get('DB_PORT', 3306)) 
     )
 
 @app.route('/')
